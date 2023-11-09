@@ -11,4 +11,8 @@ print(1, 'Teste \'Escape\'', sep="-")
 print(2, 'Teste "Escape"',sep="-")
 # r (usado para expressões regulares) 
 print(r'Teste \"Escape\"')
+print("==================================================")
+
+nome = input(print("Ana, digite o seu nome"))
  
+print(nome) 
