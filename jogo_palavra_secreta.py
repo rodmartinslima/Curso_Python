@@ -1,7 +1,11 @@
 '''
   O jogo consiste em que o usuário acerte a palavra secreta baseado nas letras que ele chutar
 ''' 
-palavra_secreta = 'vencer'
+import random
+lista_palavras = ['vencer', 'lutar', 'falar', 'fazer', 'jogar', 'comer', 'corinthians', 'orar', 'laranja', 'filme', 'televisão']
+lista_letras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z']
+
+palavra_secreta = random.choice(lista_palavras)
 rodando = True
 n_tentativas = 0
 
@@ -12,6 +16,10 @@ while rodando:
 
     if len(letra) > 1:
         print('Informe apenas uma letra, tente novamente...')
+        continue
+
+    if letra == '':
+        print('Nenhum letra digitada.')
         continue
 
     n_tentativas += 1    
@@ -42,7 +50,7 @@ while rodando:
 
                 if palpite == palavra_secreta:
                     print(20 * '=')
-                    print('PARABÉNS! Você acertou a palavra secreta')
+                    print(f'PARABÉNS, você acertou! "{palavra_secreta}" é a palavra secreta')
                     n_tentativas += 1
                     palpitar = False
                     rodando = False
@@ -50,10 +58,12 @@ while rodando:
                 palpitar = False
     else:
         print('*')
-        dica = input('Desejar receber dica(s)? (s/n)').lower()
+        dica = input('Desejar receber dica(s)? (s/n) ').lower()
 
         if dica == 's':
-            print(f'A quantidade de letras da palavra secreta {len(palavra_secreta)}')
+            print(f'A quantidade de letras na palavra secreta é {len(palavra_secreta)}')
+            letra_dica = random.choice(lista_letras)
+            print(f'Na palavra secreta a letra "{letra_dica}" aparece {palavra_secreta.count(letra_dica)}x')
 
         continue
 
